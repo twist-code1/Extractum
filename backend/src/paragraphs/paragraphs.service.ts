@@ -6,7 +6,7 @@ import { PrismaService } from '../prisma/prisma.service.js';
 @Injectable()
 export class ParagraphsService {
   constructor(private prisma: PrismaService) {}
-  create(dto: CreateParagraphDto) {
+  async create(dto: CreateParagraphDto) {
     return this.prisma.paragraphs.create({
       data: {
         title: dto.title,
@@ -17,17 +17,17 @@ export class ParagraphsService {
     })
   }
 
-  findAll() {
+  async findAll() {
     return this.prisma.paragraphs.findMany()
   }
 
-  findOne(id: number) {
+  async findOne(id: number) {
     return this.prisma.paragraphs.findUnique({
       where: { id }
     })
   }
 
-  delete(id: number) {
+  async delete(id: number) {
     return this.prisma.paragraphs.delete({
       where: { id }
     })

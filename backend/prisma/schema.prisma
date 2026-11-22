@@ -7,14 +7,27 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model User {
+  id        Int        @id @default(autoincrement())
+  email     String     @unique
+  googleId  String     @unique
+  name      String?
+  avatarUrl String?
+  projects  Projects[]
+}
+
 model Projects {
-  id         Int         @id @default(autoincrement())
-  name       String      @unique
+  id         Int          @id @default(autoincrement())
+  name       String
+  userId     Int
+  user       User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   paragraphs Paragraphs[]
+
+  @@unique([userId, name])
 }
 
 model Paragraphs {
-  id         Int     @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   title      String
   sourceLink String
   content    Json
