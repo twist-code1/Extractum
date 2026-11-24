@@ -9,7 +9,11 @@ export class GoogleProfileDto {
     @IsString()
     email: string
 
-    @IsNotEmpty()
+    @IsString()
     @IsOptional()
-    name: string
+    name?: string
+
+    @IsString()
+    @IsOptional()
+    avatarUrl?: string
 }
