@@ -9,12 +9,14 @@ export class UsersService {
         return this.prisma.user.upsert({
             where: { googleId: dto.googleId },
             update: {
-                name: dto.name
+                name: dto.name,
+                avatarUrl: dto.avatarUrl,
             },
             create: {
                 googleId: dto.googleId,
                 email: dto.email,
-                name: dto.name
+                name: dto.name,
+                avatarUrl: dto.avatarUrl,
             }
         })
     }
