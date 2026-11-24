@@ -7,6 +7,7 @@ import { ProjectsModule } from './projects/projects.module.js';
 import { ParagraphsModule } from './paragraphs/paragraphs.module.js';
 import { UsersModule } from './users/users.module.js';
 import { AuthModule } from './auth/auth.module.js';
+import { PrismaModule } from './prisma/prisma.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -17,6 +18,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
       appSecret: process.env.OBSERVE_APP_SECRET ?? 'YOUR_APP_SECRET',
       serviceId: 'backend',
     }),
+    PrismaModule,
     EngineModule,
     ProjectsModule,
     ParagraphsModule,
