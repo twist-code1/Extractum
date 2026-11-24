@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsNumber, IsString } from "class-validator"
-import { Prisma } from "../../../generated/prisma/browser.js"
+import { Prisma } from "@prisma/client"
 
 export class CreateParagraphDto {
     @IsNotEmpty()
