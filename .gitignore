@@ -2,12 +2,13 @@ node_modules/
 __pycache__/
 .venv/
 venv/
-
 dist/
 build/
 *.db
 *.sqlite
-
+*.tsbuildinfo
 .env
 .DS_Store
 docker-data/
+generated/
+migrations/
